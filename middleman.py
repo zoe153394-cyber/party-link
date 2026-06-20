@@ -7,10 +7,11 @@ import time
 app = Flask(__name__)
 
 SECRET_KEY = "WE-NEED-TO-PARTY"
-TARGET_URL = "https://metabook.gr/margant"
+SIGNING_URL = "https://party-link.onrender.com/go"  # Used for signature verification
+TARGET_URL = "https://metabook.gr/margant"           # Where to redirect after validation
 
 def validate_link(expires: int, sig: str) -> tuple[bool, str]:
-    url_to_verify = f"{TARGET_URL}?expires={expires}"
+    url_to_verify = f"{SIGNING_URL}?expires={expires}"
     expected_sig = hmac.new(
         SECRET_KEY.encode(),
         url_to_verify.encode(),
