@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 SECRET_KEY = "WE-NEED-TO-PARTY"
 SIGNING_URL = "https://party-link.onrender.com/go"  # Used for signature verification
-TARGET_URL = "https://metabook.gr/margant"           # Where to redirect after validation
+TARGET_URL = "https://maps.app.goo.gl/tGQW2hasASJ6hyCY7"           # Where to redirect after validation
 
 def validate_link(expires: int, sig: str) -> tuple[bool, str]:
     url_to_verify = f"{SIGNING_URL}?expires={expires}"
